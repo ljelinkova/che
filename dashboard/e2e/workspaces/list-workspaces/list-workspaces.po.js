@@ -27,6 +27,8 @@ const ListWorkspaces = function() {
 
   this.listElement = $('.workspace-list-content');
 
+  this.addWorkspaceButton = element(by.cssContainingText('span', 'Add Workspace'));
+
   // header
   this.listHeaderElement = this.listElement.$('.che-list-header');
 
