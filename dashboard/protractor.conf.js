@@ -31,7 +31,14 @@ exports.config = {
     'browserName': 'chrome',
     'chromeOptions': {
       args: ['--lang=en',
-        '--window-size=1280,800']
+        '--window-size=1280,800'],
+      'perfLoggingPrefs': {
+          'enableNetwork': true
+      }
+    },
+    'loggingPrefs': {
+      browser: 'ALL',
+      performance: 'ALL'
     },
 
     // uncomment lines below if you want to run more than one browser instance and share tests between them.
@@ -44,7 +51,7 @@ exports.config = {
 
   // Spec patterns are relative to the current working directory when
   // protractor is called.
-  specs: [paths.e2e + '/**/*.js'],
+  specs: [paths.e2e + '/**/*list-workspaces*.js'],
 
   // Options to be passed to Jasmine-node.
   jasmineNodeOpts: {

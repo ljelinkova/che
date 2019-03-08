@@ -23,11 +23,11 @@ gulp.task('webdriver-update', $.protractor.webdriver_update);
 
 gulp.task('webdriver-standalone', $.protractor.webdriver_standalone);
 
-function runProtractor (done) {
+function runProtractor () {
   let params = process.argv;
   let args = params.length > 3 ? params.slice(3) : [];
 
-  gulp.src(path.join(conf.paths.e2e, '/**/*.ts'))
+  return gulp.src(path.join(conf.paths.e2e, '/**/*.ts'))
     .pipe($.protractor.protractor({
       configFile: 'protractor.conf.js',
       args: args
@@ -37,7 +37,8 @@ function runProtractor (done) {
       throw err;
     })
     .on('end', function () {
-      done();
+      var browserSync = require('browser-sync');
+      browserSync.instance.exit();
     });
 }
 
